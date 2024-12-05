@@ -1,0 +1,35 @@
+<section class="productCarousel popular-section" 
+    data-slick='{
+        "infinite": false,
+        
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "slide": "[data-product-slide]",
+        "responsive": [
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToShow": 4,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToShow": 2,
+                    "slidesToScroll": 1
+                }
+            }
+        ]
+    }'
+>
+    {{#each children}}
+
+    {{#if image.url}}
+    <div data-product-slide class="productCarousel-slide">
+        {{> components/category/card }}
+    </div>
+    {{/if}}
+    {{/each}}
+</section>

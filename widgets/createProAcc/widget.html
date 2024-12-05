@@ -1,0 +1,99 @@
+<style>
+    .benefits-block-header{{_.id}} {
+        margin-top: {{desktop_margin_header.top.value}}{{desktop_margin_header.top.type}};
+        margin-bottom: {{desktop_margin_header.bottom.value}}{{desktop_margin_header.bottom.type}};
+    }
+    .benefits-block-list{{_.id}} {
+        margin-top: {{desktop_margin_benefits.top.value}}{{desktop_margin_benefits.top.type}};
+        margin-bottom: {{desktop_margin_benefits.bottom.value}}{{desktop_margin_benefits.bottom.type}};
+    }
+    @media screen and (max-width: 800px) {
+        .benefits-block-header{{_.id}} {
+            margin-top: {{mobile_margin_header.top.value}}{{mobile_margin_header.top.type}};
+            margin-bottom: {{mobile_margin_header.bottom.value}}{{mobile_margin_header.bottom.type}};
+        }
+        .benefits-block-list{{_.id}} {
+            margin-top: {{mobile_margin_benefits.top.value}}{{mobile_margin_benefits.top.type}};
+            margin-bottom: {{mobile_margin_benefits.bottom.value}}{{mobile_margin_benefits.bottom.type}};
+        }
+    }
+.benefits-block-{{_.id}}{
+    background: {{background}};
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.benefits-block-{{_.id}} .benefits-block-inner{
+width: 60%;
+}
+.benefits-block-{{_.id}} h3{
+text-transform: uppercase;
+}
+.benefits-block-{{_.id}} h3, .benefits-block-{{_.id}} p, .benefits-block-{{_.id}} a{
+    color: {{text_color}};
+}
+.benefits-block-{{_.id}}.flex_mode .benefits-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.benefits-block-{{_.id}}.flex_mode p{
+margin: 0;
+}
+
+.benefits-block-{{_.id}}.flex_mode .benefits-block-inner, .benefits-block-{{_.id}}.flex_mode .buttons-comp{
+    display: none;
+}
+
+</style>
+
+<div class="benefits-block-{{_.id}} {{#if flex_mode}}flex_mode{{/if}}">
+
+    <div class="benefits-list benefits-block-list{{_.id}}">
+        {{#each benefits}}
+        <div class="benefits-item">
+            {{#if icon.visibility '===' 'show'}}
+            <span class="benefits-icon">
+                {{#if icon.icon_type '===' 'image'}}
+                <img
+                    src="{{icon.icon_image.src}}"
+                    alt="{{text}}"
+                />
+                {{else}} {{{icon.icon_svg}}} {{/if}}
+            </span>
+            {{/if}} {{#if text}}
+            <p class="benefits-text">{{text}}</p>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="benefits-block-inner">
+        {{#if heading}}
+        <h3 class="benefits-block-title benefits-block-header{{_.id}}">{{heading}}</h3>
+        {{/if}}
+
+        {{#if description}}
+        <p class="benefits-block-description">{{description}}</p>
+        {{/if}}
+    </div>
+    <div class="buttons-comp">
+        
+        {{#all (if button1.visibility '===' 'show') button1.text button1.url}}
+        <a
+            href="{{button1.url}}"
+            class="btn-medium btn-arrow-right1"
+        >
+            {{button1.text}}
+        </a>
+        {{/all}}
+        {{#all (if button2.visibility '===' 'show') button2.text button2.url}}
+        <a
+            href="{{button2.url}}"
+            class="btn-medium btn-arrow-right2"
+        >
+            {{button2.text}}
+        </a>
+        {{/all}}
+    </div>
+</div>

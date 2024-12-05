@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mountWidget correctly mounts a widget 1`] = `
+<div>
+  <div
+    class="styled__StyledBox-sc-sj5f1m-0 VUKyh styled__StyledFlex-sc-hcvk8l-0 iBHbGA"
+  >
+    <img
+      height="34"
+      src="favicon.ico"
+    />
+       
+    <h1
+      class="styled__StyledH1-sc-tqnj75-1 klUKKw"
+    >
+      Widget Builder
+    </h1>
+  </div>
+  <div>
+    <div>
+      blah
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders 1`] = `
+<div>
+  <div
+    class="styled__StyledBox-sc-sj5f1m-0 VUKyh styled__StyledFlex-sc-hcvk8l-0 iBHbGA"
+  >
+    <img
+      height="34"
+      src="favicon.ico"
+    />
+       
+    <h1
+      class="styled__StyledH1-sc-tqnj75-1 klUKKw"
+    >
+      Widget Builder
+    </h1>
+  </div>
+  <div />
+</div>
+`;

@@ -1,0 +1,583 @@
+<style>
+
+
+    .cta-panel {
+        --margin-mobile-top: {{margin_mobile.top.value}}{{margin_mobile.top.type}};
+        --margin-mobile-right: {{#if margin_mobile.right.value '>' 0}}{{margin_mobile.right.value}}{{margin_mobile.right.type}}{{else}}auto{{/if}};
+        --margin-mobile-bottom: {{margin_mobile.bottom.value}}{{margin_mobile.bottom.type}};
+        --margin-mobile-left: {{#if margin_mobile.left.value '>' 0}}{{margin_mobile.left.value}}{{margin_mobile.left.type}}{{else}}auto{{/if}};
+        --margin-desktop-top: {{margin_desktop.top.value}}{{margin_desktop.top.type}};
+        --margin-desktop-right: {{#if margin_desktop.right.value '>' 0}}{{margin_desktop.right.value}}{{margin_desktop.right.type}}{{else}}auto{{/if}};
+        --margin-desktop-bottom: {{margin_desktop.bottom.value}}{{margin_desktop.bottom.type}};
+        --margin-desktop-left: {{#if margin_desktop.left.value '>' 0}}{{margin_desktop.left.value}}{{margin_desktop.left.type}}{{else}}auto{{/if}};
+     
+    }
+
+    .sections {
+        display: flex;
+    }
+    @media (max-width: 800px) {
+
+        .cta-panel .influencers_pick {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.influencers_pick h2 {
+    font-size: 22px;
+    line-height: 1.45;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.influencers_pick p {
+    margin: 20px auto 35px auto;
+    font-size: 14px;
+    line-height: 1.6;
+    width: 80%;
+}
+
+.influencers_pick a {
+    display: block;
+    border: 1px solid #dadada;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.influencers_pick img {
+    border-radius: 50%;
+}
+
+.influencers_pick_slider {
+    margin-left: 8px;
+}
+
+.influencers_pick .influencers_pick_slider p {
+    margin: 14px 0 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    width: 100%;
+}
+        .cta-panel-{{_.id}} {
+            margin-top: var(--margin-mobile-top);
+            margin-right: var(--margin-mobile-right);
+            margin-bottom: var(--margin-mobile-bottom);
+            margin-left: var(--margin-mobile-left);
+        }
+
+        .cta-panel {
+    /* background-color: var(--colour-lilac); */
+    max-width: 1299px;
+    width: 100%;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.cta-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px;
+}
+
+.cta-text-container h3, h2, b,
+.cta-text-container p {
+    color: {{text_color}};
+}
+
+.cta-text-container h3 {
+    margin-bottom: 16px;
+}
+
+.cta-benefits {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.cta-benefits p {
+    margin: 0;
+    color: {{text_color}};
+}
+
+.cta-benefits:last-of-type {
+    margin-bottom: 32px;
+}
+
+.cta-benefits-icon {
+    max-width: 25px;
+    height: auto;
+}
+
+.cta-media {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.cta-tag {
+    /* background: var(--colour-black); */
+    color: {{text_color}};
+    /* font-family: var(--font-bold); */
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: top right;
+    top: 0;
+    right: 74px;
+    z-index: 2;
+}
+
+.cta-tag::before,
+.cta-tag::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+}
+
+.cta-tag::before {
+    bottom: 0;
+    right: 99%;
+    border-top: 30px solid transparent;
+    border-right: 30px solid black;
+}
+
+.cta-tag::after {
+    top: 0;
+    right: 99%;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid black;
+}
+
+.cta-tag.hide-m {
+    display: none;
+}
+
+.cta-video,
+.cta-image {
+    border: 0;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+}
+
+.cta-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cta-image-overlay {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-image-overlay svg {
+    cursor: pointer;
+    max-width: 100px;
+}
+
+.cta-panel-reverse {
+    flex-direction: column-reverse;
+}
+        
+    }
+
+    @media (min-width: 801px) {
+        .cta-panel .influencers_pick {
+        padding: 70px 80px;
+    }
+
+    .influencers_pick h2 {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .influencers_pick p {
+        width: auto;
+        margin: 24px 0 56px 0;
+    }
+
+    .influencers_pick_slider {
+        width: 90%;
+    }
+        .cta-panel-{{_.id}} {
+            margin-top: var(--margin-desktop-top);
+            margin-right: var(--margin-desktop-right);
+            margin-bottom: var(--margin-desktop-bottom);
+            margin-left: var(--margin-desktop-left);
+        }
+        .cta-panel {
+        flex-direction: row;
+        margin: 0 auto;
+    }
+
+    .cta-text-container {
+        padding: 91px;
+        width: 50%;
+    }
+
+    .cta-text-container h3 {
+        margin-bottom: 32px;
+    }
+
+    .cta-media {
+        width: 50%;
+    }
+
+    .cta-video,
+    .cta-image {
+        aspect-ratio: initial;
+        height: 100%;
+    }
+
+    .cta-panel-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .cta-panel-reverse .cta-media .cta-tag {
+        transform: rotate(-90deg) translateX(-100%);
+        transform-origin: top left;
+        top: 0;
+        right: auto;
+        left: 24px;
+    }
+
+    .cta-tag {
+        padding: 17px 23px;
+    }
+    }
+    .cta-panel-{{_.id}}{
+        background: {{background}};
+        color: {{text_color}};
+    }
+    .cta-panel-{{_.id}} h3, .cta-panel-{{_.id}} b, .cta-panel-{{_.id}} p, .cta-panel-{{_.id}} a{
+        color: {{text_color}};
+    } 
+
+
+    .cta-panel-{{_.id}} .cta-panel-reverse {
+    padding: 50px 50px 0;
+}
+
+.cta-panel-{{_.id}} .cta-panel-reverse .cta-text-container {
+    padding: 0 50px 0 90px;
+    margin: auto;
+}
+
+.cta-panel-{{_.id}} .cta-panel-reverse .cta-text-container h3 {
+    font-size: 48px;
+    font-weight: 400;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+}
+
+.cta-panel-{{_.id}} .cta-panel-reverse .cta-text-container b {
+    font-size: 16px;
+    margin: 0 0 15px;
+    font-weight: 500;
+    display: block;
+}
+
+.cta-panel-{{_.id}} .cta-panel-reverse .cta-text-container p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+
+.influencers_pick_{{_.id}} h2 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 400;
+    padding: 50px 50px 0;
+}
+
+.influencers_pick_{{_.id}} b {
+    padding-left: 50px;
+}
+
+.influencers_pick_{{_.id}} .influencers_pick_slider {
+    padding-top: 50px;
+    width: 100%;
+}
+
+.influencers_pick_{{_.id}} .influencers_pick_slider .splide__arrows {
+    position: absolute;
+    right: 20px;
+    width: 110px;
+    top: -40px;
+}
+</style>
+
+<div class="cta-panel cta-panel-{{_.id}}">
+<div class="sections {{#if media_position '===' 'left'}} cta-panel-reverse {{/if}}">
+    <div class="cta-text-container">
+        <h3>{{title}}</h3>
+        <b>{{subTitle}}</b>
+        <p>{{description}}</p>
+        {{#or link_url link_text}}
+            <a
+                {{#if new_tab}} target="_blank" {{/if}}
+                class="btn-medium btn-arrow-right"
+                href="{{link_url}}"
+                >{{link_text}}</a
+            >
+        {{/or}}
+    </div>
+    <div class="cta-media">
+        {{#if tag}}
+        <div class="cta-tag {{#if mb_hide_tag}}hide-m{{/if}}">{{tag}}</div>
+        {{/if}}
+        <div class="cta-video-container">
+            {{#if video_or_image '===' 'video'}} 
+
+            {{#if video_provider '===' 'self_hosted'}}
+            <video
+                class="cta-video"
+                controls
+                data-type="{{video_provider}}"
+                width="650"
+                height="650"
+                allow="autoplay; fullscreen; picture-in-picture"
+                playsinline
+            >
+                <source
+                    src="{{video_url}}"
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+            {{/if}} 
+
+            {{#if video_provider '===' 'youtube'}}
+            <iframe
+                class="cta-video"
+                data-type="{{video_provider}}"
+                width="650"
+                height="650"
+                src="https://www.youtube.com/embed/{{video_id}}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            >
+            </iframe>
+            {{/if}} 
+
+            {{#if video_provider '===' 'vimeo'}}
+            <iframe
+            class="cta-video"
+            width="650"
+            height="650"
+            data-type="{{video_provider}}"
+            id="player"
+            src="{{vimeo_url}}"
+            allow="autoplay"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
+        ></iframe>
+            {{/if}}
+            
+            {{#if selected_image.src '!==' ''}}
+            <div
+                class="cta-image-overlay"
+                style="background-image: url('{{selected_image.src}}')"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="99"
+                    height="100"
+                    viewBox="0 0 99 100"
+                    fill="none"
+                >
+                    <path
+                        d="M49.5139 0.949951C22.3729 0.949951 0.463867 22.859 0.463867 50C0.463867 77.1409 22.3729 99.0499 49.5139 99.0499C76.6549 99.0499 98.5639 77.1409 98.5639 50C98.5639 22.859 76.6549 0.949951 49.5139 0.949951ZM37.1969 70.7099V29.2899L70.1149 50L37.1969 70.7099Z"
+                        fill="white"
+                    />
+                </svg>
+            </div>
+            {{/if}}
+
+             {{/if}}
+             
+    {{#if video_or_image '===' 'image'}}
+        </div>
+        <img
+            class="cta-image"
+            src="{{selected_image.src}}"
+            alt="CTA Panel Image"
+        />
+        {{/if}}
+    </div>
+
+</div>
+<div class="influencers_pick influencers_pick_{{_.id}}">
+    <h2>
+        {{Slidertitle}}
+    </h2>
+
+    <b>
+        {{Sliderdescription}}    
+    </b>
+
+    <div class="influencers_pick_slider"  data-slider-slides='{
+        "type": "slider",
+        "arrows": true,
+        "pagination": false,
+        "perPage": {{per_page_mobile}},
+        "perMove": 1,
+        "gap": "12px",
+        "mediaQuery": "min",
+        "breakpoints": {
+            "601": {
+                "perPage": 3.1,
+                "gap": "15px"
+            },
+            "1024": {
+                "perPage": 5.1,
+                "gap": "20px"
+            }
+        }
+    }'>
+        {{#each influencers}}
+            <div>
+                <a href="{{img_link_url}}">
+                    <img src="{{influencer_img.src}}" alt="{{img_link_alt}}" />
+                </a>
+            </div>
+        {{/each}}
+    </div>
+
+</div>
+
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.0/dist/js/splide-extension-auto-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.cta-image-overlay').forEach((ctaOverlay) => {
+        ctaOverlay.addEventListener('click', () => {
+            let iframe = ctaOverlay.previousElementSibling;
+
+            if (iframe && iframe.getAttribute('data-type') == 'youtube') {
+                iframe.src += "&autoplay=1";
+            }else if(iframe && iframe.getAttribute('data-type') == 'vimeo') {
+                const videoId = iframe.src.split('/').pop();
+                var vimeoPlayer = new Vimeo.Player(iframe);
+                vimeoPlayer.play().catch(function(error) {
+                    console.error('Vimeo playback failed err:', error);
+                });
+            }else{
+                if(iframe){
+                    iframe.play()
+                }
+            }
+            ctaOverlay.remove();
+        });
+    });
+
+
+    const sliders = document.querySelectorAll('.cta-panel-{{_.id}} [data-slider-slides]');
+
+sliders.forEach((slider) => {
+    // Function to initialize (or reinitialize) the slider
+    const initializeSlider = () => {
+        const trackEl = document.createElement('div');
+        const listEl = document.createElement('div');
+        const children = Array.from(slider.children);
+        const autoscroll = slider.hasAttribute('data-slider-autoscroll');
+        const settings = slider.dataset.sliderSlides;
+        const options = settings ? JSON.parse(settings) : {};
+        let extensions = {};
+
+        if (autoscroll) {
+            extensions = { AutoScroll: Splide.Extensions.AutoScroll };
+        }
+
+        if (slider.classList.contains('influencers_pick_slider')) {
+            options.type = 'slide';
+            options.rewind = false;
+            options.trimSpace = true;
+            options.rewindByDrag = false;
+            options.focus = 'end';
+        }
+
+        slider.classList.add('splide');
+        trackEl.classList.add('splide__track');
+        listEl.classList.add('splide__list');
+
+        children.forEach((slide) => {
+            slide.classList.add('splide__slide');
+            listEl.append(slide);
+        });
+
+        trackEl.append(listEl);
+        slider.innerHTML = '';
+        slider.append(trackEl);
+
+        new Splide(slider, options).mount(extensions);
+    };
+
+    initializeSlider();
+
+    // Set up a MutationObserver to watch for the addition of 'data-loaded'
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-loaded') {
+                const dataLoaded = mutation.target.getAttribute('data-loaded');
+                if (dataLoaded === 'true') {
+                    initializeSlider();
+                }
+            }
+        });
+    });
+
+    observer.observe(slider, {
+        attributes: true,
+        subtree: true,
+    });
+});
+
+});
+</script>

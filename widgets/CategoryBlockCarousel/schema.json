@@ -1,0 +1,236 @@
+[
+    {
+        "type": "tab",
+        "label": "Settings",
+        "sections": [
+            {
+                "label": "Heading/Slider Settings",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "Heading",
+                        "id": "heading"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Intro Text",
+                        "id": "text"
+                    },
+                    {
+                        "type": "range",
+                        "label": "Blocks per page (Mobile)",
+                        "id": "slides_per_page_mobile",
+                        "default": 2,
+                        "typeMeta": {
+                            "rangeValues": {
+                                "min": 1,
+                                "max": 10,
+                                "step": 1,
+                                "unit": ""
+                            }
+                        }
+                    },
+                    {
+                        "type": "range",
+                        "label": "Blocks per page (Tablet)",
+                        "id": "slides_per_page_tablet",
+                        "default": 4,
+                        "typeMeta": {
+                            "rangeValues": {
+                                "min": 1,
+                                "max": 10,
+                                "step": 1,
+                                "unit": ""
+                            }
+                        }
+                    },
+                    {
+                        "type": "range",
+                        "label": "Blocks per page (Desktop)",
+                        "id": "slides_per_page_desktop",
+                        "default": 5,
+                        "typeMeta": {
+                            "rangeValues": {
+                                "min": 1,
+                                "max": 10,
+                                "step": 1,
+                                "unit": ""
+                            }
+                        }
+                    },
+                    {
+                        "type": "boolean",
+                        "id": "show_overflow",
+                        "label": "Show Overflow Slides (Could cause display issues)",
+                        "default": true
+                    }
+                ]
+            },
+            {
+                "label": "Slide Settings",
+                "settings": [
+                    {
+                        "type": "color",
+                        "id": "title_color",
+                        "label": "Title Colour",
+                        "default": "#232629"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_color_hover",
+                        "label": "Title Hover Colour",
+                        "default": "#FFFFFF"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_background",
+                        "label": "Title Background Colour",
+                        "default": "#D8DAD6"
+                    },
+                    {
+                        "type": "color",
+                        "id": "title_background_hover",
+                        "label": "Title Background Hover Colour",
+                        "default": "#232629"
+                    }
+                ]
+            },
+            {
+                "label": "Layout (Mobile)",
+                "settings": [
+                    {
+                        "type": "boxModel",
+                        "label": "Margin",
+                        "id": "margin_mobile",
+                        "default": {
+                            "top": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "right": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "bottom": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "left": {
+                                "value": "0",
+                                "type": "px"
+                            }
+                        }
+                    },
+                    {
+                        "type": "boxModel",
+                        "label": "Padding",
+                        "id": "padding_mobile",
+                        "default": {
+                            "top": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "right": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "bottom": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "left": {
+                                "value": "0",
+                                "type": "px"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "label": "Layout (Desktop)",
+                "settings": [
+                    {
+                        "type": "boxModel",
+                        "label": "Margin",
+                        "id": "margin_desktop",
+                        "default": {
+                            "top": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "right": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "bottom": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "left": {
+                                "value": "0",
+                                "type": "px"
+                            }
+                        }
+                    },
+                    {
+                        "type": "boxModel",
+                        "label": "Padding",
+                        "id": "padding_desktop",
+                        "default": {
+                            "top": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "right": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "bottom": {
+                                "value": "0",
+                                "type": "px"
+                            },
+                            "left": {
+                                "value": "0",
+                                "type": "px"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "array",
+        "label": "Blocks",
+        "id": "blocks",
+        "defaultCount": 1,
+        "entryLabel": "Block",
+        "schema": [
+            {
+                "type": "tab",
+                "label": "Block",
+                "sections": [
+                    {
+                        "settings": [
+                            {
+                                "type": "text",
+                                "label": "Category ID",
+                                "id": "categoryId",
+                                "default": "30"
+                            },
+                            {
+                                "type": "imageManager",
+                                "label": "Image",
+                                "id": "image",
+                                "default": {
+                                    "src": "",
+                                    "type": "IMAGE_MANAGER"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

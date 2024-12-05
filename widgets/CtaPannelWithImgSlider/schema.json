@@ -1,0 +1,312 @@
+[
+  {
+    "type": "tab",
+    "label": "Settings",
+    "sections": [
+      {
+        "settings": [
+          {
+            "type": "input",
+            "id": "title",
+            "label": "Title",
+            "default": "Your Title Here"
+          },
+          {
+            "type": "input",
+            "id": "subTitle",
+            "label": "Sub Title",
+            "default": "Your Sub Title Here"
+          },
+          {
+            "type": "input",
+            "id": "description",
+            "label": "Description",
+            "default": "Your Description Here"
+          },
+          {
+            "type": "input",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Click Here"
+          },
+          {
+            "type": "input",
+            "id": "link_url",
+            "label": "Link URL",
+            "default": "https://www.example.com"
+          },
+                     {
+              "type": "color",
+              "id": "background",
+              "label": "Background Colour",
+              "default": "#1D2023"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Colour",
+            "default": "#ffffff"
+        },
+          {
+            "type": "select",
+            "id": "video_or_image",
+            "label": "CTA Video or Image",
+            "default": "image",
+            "typeMeta": {
+              "selectOptions": [
+                {
+                  "label": "Video",
+                  "value": "video"
+                },
+                {
+                  "label": "Image",
+                  "value": "image"
+                }
+              ] 
+            }
+          },
+
+          {
+            "type": "select",
+            "id": "media_position",
+            "label": "Media Position",
+            "default": "right",
+            "typeMeta": {
+              "selectOptions": [
+                {
+                  "label": "Right",
+                  "value": "right"
+                },
+                {
+                  "label": "Left",
+                  "value": "left"
+                }
+              ] 
+            }
+          },
+          {
+            "type": "select",
+            "id": "video_provider",
+            "label": "Video Provider",
+            "default": "youtube",
+            "typeMeta": {
+              "selectOptions": [
+                {
+                  "label": "Self Hosted",
+                  "value": "self_hosted"
+                },
+                {
+                  "label": "YouTube",
+                  "value": "youtube"
+                },{
+                  "label": "Vimeo",
+                  "value": "vimeo"
+                }
+              ]
+            },
+            "conditional": {
+              "key": "video_or_image",
+              "operator": "IN",
+              "value": [
+                  "video"
+              ]
+            }
+          },
+          {
+            "type": "input",
+            "id": "video_id",
+            "label": "Video ID",
+            "default": "",
+            "conditional": {
+              "key": "video_provider",
+              "operator": "IN",
+              "value": [
+                  "youtube"
+              ]
+            }
+          },
+          {
+            "type": "input",
+            "id": "vimeo_url",
+            "label": "Vimeo URL",
+            "default": "",
+            "conditional": {
+              "key": "video_provider",
+              "operator": "IN",
+              "value": [
+                  "vimeo"
+              ]
+            }
+          },
+          {
+            "type": "input",
+            "id": "video_url",
+            "label": "Video URL",
+            "default": "",
+            "conditional": {
+              "key": "video_provider",
+              "operator": "IN",
+              "value": [
+                  "self_hosted"
+              ]
+            }
+          },
+          {
+            "type": "imageManager",
+            "id": "selected_image",
+            "label": "Select Image",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type": "input",
+            "id": "tag",
+            "label": "Tag",
+            "default": ""
+          },{
+            "type": "boolean",
+            "id": "mb_hide_tag",
+            "label": "Tag hide for mobile",
+            "default": false
+          },{
+            "type": "boolean",
+            "id": "new_tab",
+            "label": "Open a new web page",
+            "default": false
+          }
+        ]
+      },
+      {
+        "label": "Slider Content",
+        "settings": [
+          {
+            "type": "text",
+            "id": "Slidertitle",
+            "label": "Slider Section Title",
+            "default":"Influencer Picks"
+          },
+          {
+            "type": "text",
+            "id": "Sliderdescription",
+            "label": "Slider Section Description",
+            "default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a elit faucibus, vehicula urna sit amet, tincidunt orci."
+          }
+        ]},
+      {
+        "label": "Layout (Tablet)",
+        "settings": [
+          {
+            "type": "text",
+            "label": "Blocks per page (Tablet)",
+            "id": "per_page_tablet",
+            "default": "4.5"
+          }
+        ]
+      },
+      {
+        "label": "Layout (Mobile)",
+        "settings": [
+          {
+            "type": "boxModel",
+            "label": "Margin",
+            "id": "margin_mobile",
+            "default": {
+              "top": {
+                "value": "0",
+                "type": "px"
+              },
+              "right": {
+                "value": "0",
+                "type": "px"
+              },
+              "bottom": {
+                "value": "0",
+                "type": "px"
+              },
+              "left": {
+                "value": "0",
+                "type": "px"
+              }
+            }
+          },
+          {
+            "type": "text",
+            "label": "Blocks per page (Mobile)",
+            "id": "per_page_mobile",
+            "default": "3.5"
+          }
+        ]
+      },
+      {
+        "label": "Layout (Desktop)",
+        "settings": [
+            {
+                "type": "boxModel",
+                "label": "Margin",
+                "id": "margin_desktop",
+                "default": {
+                    "top": {
+                        "value": "0",
+                        "type": "px"
+                    },
+                    "right": {
+                        "value": "0",
+                        "type": "px"
+                    },
+                    "bottom": {
+                        "value": "0",
+                        "type": "px"
+                    },
+                    "left": {
+                        "value": "0",
+                        "type": "px"
+                    }
+                }
+            },
+            {
+              "type": "text",
+              "label": "Blocks per page (Desktop)",
+              "id": "per_page_desktop",
+              "default": "8"
+            }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "array",
+    "label": "Influencers",
+    "id": "influencers",
+    "defaultCount": 8,
+    "entryLabel": "Influencer",
+    "schema": [
+      {
+        "type": "tab",
+        "label": "Influencer",
+        "sections": [
+          {
+            "settings": [
+              {
+                "type": "input",
+                "label": "Link url",
+                "id": "img_link_url",
+                "default":"/"
+              },
+              {
+                "type": "imageManager",
+                "label": "Image",
+                "id": "influencer_img",
+                "default": {
+                  "type": "IMAGE_MANAGER",
+                  "src":"https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

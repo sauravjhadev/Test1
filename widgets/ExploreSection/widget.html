@@ -1,0 +1,186 @@
+
+<style>
+    .block-slider-{{_.id}} .exploreNav h3{
+        font-size: 40px;
+    font-weight: bold;
+    }
+    .block-slider-{{_.id}} .exploreNav{
+        text-align: center;
+    }
+    .block-slider-{{_.id}} .subCats h5{
+        text-align: center;
+    }
+    .block-slider-{{_.id}} .subCats .image{
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
+<div class="block-slider block-slider-{{_.id}} full category-block-slider">
+    <div class="block-slider-slider explore-section">
+        <div class="exploreNav">
+            {{assignVar 'preHeader' this.heading}}
+
+            {{#each blocks}} 
+            {{#each ../this._.data.site.categoryTree}} {{#if entityId '==' ../categoryId}}
+            <div>
+                <h3
+                    data-catIdBelongs="{{entityId}}"
+                    class="{{#if @../index '==' 0}} active {{/if}}"
+                >
+                {{getVar 'preHeader'}} {{name}}
+                </h3>
+            </div>
+            {{/if}} {{/each}} {{/each}}
+        </div>
+        <div class="exploreProductsData">
+            {{assignVar 'perMobile' this.per_page_mobile}}
+            {{assignVar 'perTab' this.per_page_tablet}}
+            {{assignVar 'perDesk' this.per_page_desktop}}
+            {{assignVar 'style' this.styleType}}
+            {{#each blocks}}
+            <div class="block-slider-block" data-json="{{json ../this}}">
+                {{#each ../this._.data.site.categoryTree}} {{#if entityId '==' ../categoryId}}
+                <div
+                    data-catIdTo="{{entityId}}"
+                    class="firstCat hide {{#if @../index '==' 0}} show {{/if}} style-of-{{getVar 'style'}}"
+                >
+                    <div class="subCatNav" data-slider='{
+                      "type": "slider",
+                      "arrows": true,
+                      "pagination": false,
+                      "perPage": 3,
+                      "perMove": 1,
+                      "gap": "12px",
+                      "mediaQuery": "min",
+                      "breakpoints": {
+                        "320": {
+                          "perPage": {{getVar "perMobile"}},
+                          "gap": "15px"
+                      },
+                          "601": {
+                              "perPage": {{getVar "perTab"}},
+                              "gap": "15px"
+                          },
+                          "1024": {
+                              "perPage": {{getVar "perDesk"}},
+                              "gap": "20px"
+                          }
+                      }
+                  }'>
+                        {{#each children}}
+
+                        <div class="subCats {{#unless image}} no-img {{/unless}}">
+                          {{#if (getVar "style") '==' 'explore'}}
+                          <h5
+                              data-catIdBelongs="{{entityId}}"
+                          >
+                          <a href="{{path}}"> {{name}} </a>
+                          </h5>
+                          {{/if}}
+                            {{#if image}}
+                            <div class="image">
+                                <a href="{{path}}">
+                                    <img
+                                    src="{{image.url}}"
+                                    alt="{{image.altText}}"
+                                />
+                                </a>
+                               
+                            </div>
+                            {{/if}}
+                            {{#if (getVar "style")'==' 'explore'}}
+                            <h5
+                                data-catIdBelongs="{{entityId}}"
+                            >
+                            <a href="{{path}}"> shop collection</a>
+                            </h5>
+                            {{else}}
+                            <h5> <a href="{{path}}">{{name}}</a> </h5>
+                            {{/if}}
+                        </div>
+
+                        {{/each}}
+                    </div>
+                </div>
+
+                {{/if}} {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.0/dist/js/splide-extension-auto-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
+
+<script type="text/javascript">
+
+window.onload=()=>{
+    const sliders = document.querySelectorAll('.block-slider-{{_.id}} [data-slider]');
+    console.log(sliders)
+sliders.forEach((slider) => {
+    // Function to initialize (or reinitialize) the slider
+    const initializeSlider = () => {
+        const trackEl = document.createElement('div');
+        const listEl = document.createElement('div');
+        const children = Array.from(slider.children);
+        const autoscroll = slider.hasAttribute('data-slider-autoscroll');
+        const settings = slider.dataset.slider;
+        const options = settings ? JSON.parse(settings) : {};
+        let extensions = {};
+
+        if (autoscroll) {
+            extensions = { AutoScroll: Splide.Extensions.AutoScroll };
+        }
+
+        if (slider.classList.contains('influencers_pick_slider')) {
+            options.type = 'slide';
+            options.rewind = false;
+            options.trimSpace = true;
+            options.rewindByDrag = false;
+            options.focus = 'end';
+        }
+
+        slider.classList.add('splide');
+        trackEl.classList.add('splide__track');
+        listEl.classList.add('splide__list');
+
+        children.forEach((slide) => {
+            slide.classList.add('splide__slide');
+            listEl.append(slide);
+        });
+
+        trackEl.append(listEl);
+        slider.innerHTML = '';
+        slider.append(trackEl);
+
+        new Splide(slider, options).mount(extensions);
+    };
+
+    initializeSlider();
+
+    // Set up a MutationObserver to watch for the addition of 'data-loaded'
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-loaded') {
+                const dataLoaded = mutation.target.getAttribute('data-loaded');
+                if (dataLoaded === 'true') {
+                    initializeSlider();
+                }
+            }
+        });
+    });
+
+    observer.observe(slider, {
+        attributes: true,
+        subtree: true,
+    });
+});
+
+}
+
+
+</script>    

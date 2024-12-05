@@ -1,0 +1,46 @@
+{
+  "background":{
+      "type": "color",
+      "id": "text_color",
+      "label": "Background Colour",
+      "default": "#1D2023"
+  },
+  "button1": {
+    "visibility": "hide"
+  },
+  "button12": {
+    "visibility": "hide"
+  },
+  "desktop_margin": {
+    "top": {
+      "value": "0",
+      "type": "px"
+    },
+    "bottom": {
+      "value": "0",
+      "type": "px"
+    }
+  },
+  "mobile_margin": {
+    "top": {
+      "value": "0",
+      "type": "px"
+    },
+    "bottom": {
+      "value": "0",
+      "type": "px"
+    }
+  },
+  "benefits": [
+    {
+      "icon": {
+        "visibility": "hide",
+        "icon_type": "svg",
+        "icon_image": {
+          "src": "",
+          "type": "IMAGE_MANAGER"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+<style>
+    .influencers_pick_{{_.id}} {
+        margin-top: {{desktop_margin.top.value}}{{desktop_margin.top.type}};
+        margin-bottom: {{desktop_margin.bottom.value}}{{desktop_margin.bottom.type}};
+    }
+
+    @media screen and (max-width: 800px) {
+        .influencers_pick_{{_.id}} {
+            margin-top: {{mobile_margin.top.value}}{{mobile_margin.top.type}};
+            margin-bottom: {{mobile_margin.bottom.value}}{{mobile_margin.bottom.type}};
+        }
+    }
+
+
+.influencers_pick_{{_.id}} .influencers_pick_slider {
+    margin: auto;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.influencers_pick_{{_.id}} .influencers_pick_slider div {
+    position: relative;
+}
+
+.influencers_pick_{{_.id}} .influencers_pick_slider div p {
+    position: absolute;
+    margin: 0;
+    bottom: 15px;
+    z-index: 1;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+</style>
+
+<div class="influencers_pick influencers_pick_{{_.id}}">
+    <h2>
+        {{title}}
+    </h2>
+
+    <p>
+        {{description}}    
+    </p>
+
+    <div class="influencers_pick_slider" style="display: flex;">
+        {{#each influencers}}
+            <div>
+                <a href="{{img_link_url}}">
+                    <img src="{{influencer_img.src}}" alt="{{img_link_alt}}" />
+                    <p class="influencers-pick-img-name">{{img_link_alt}}</p>
+                </a>
+                
+            </div>
+        {{/each}}
+    </div>
+
+</div>

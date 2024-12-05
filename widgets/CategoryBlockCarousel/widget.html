@@ -1,0 +1,123 @@
+<style>
+    .block-slider {
+        --padding-desktop-top: {{padding_desktop.top.value}}{{padding_desktop.top.type}};
+        --padding-desktop-right: {{padding_desktop.right.value}}{{padding_desktop.right.type}};
+        --padding-desktop-bottom: {{padding_desktop.bottom.value}}{{padding_desktop.bottom.type}};
+        --padding-desktop-left: {{padding_desktop.left.value}}{{padding_desktop.left.type}};
+
+        --margin-desktop-top: {{margin_desktop.top.value}}{{margin_desktop.top.type}};
+        --margin-desktop-right: {{#if margin_desktop.right.value '>' 0}}{{margin_desktop.right.value}}{{margin_desktop.right.type}}{{else}}auto{{/if}};
+        --margin-desktop-bottom: {{margin_desktop.bottom.value}}{{margin_desktop.bottom.type}};
+        --margin-desktop-left: {{#if margin_desktop.left.value '>' 0}}{{margin_desktop.left.value}}{{margin_desktop.left.type}}{{else}}auto{{/if}};
+
+        --padding-mobile-top: {{padding_mobile.top.value}}{{padding_mobile.top.type}};
+        --padding-mobile-right: {{padding_mobile.right.value}}{{padding_mobile.right.type}};
+        --padding-mobile-bottom: {{padding_mobile.bottom.value}}{{padding_mobile.bottom.type}};
+        --padding-mobile-left: {{padding_mobile.left.value}}{{padding_mobile.left.type}};
+
+        --margin-mobile-top: {{margin_mobile.top.value}}{{margin_mobile.top.type}};
+        --margin-mobile-right: {{#if margin_mobile.right.value '>' 0}}{{margin_mobile.right.value}}{{margin_mobile.right.type}}{{else}}auto{{/if}};
+        --margin-mobile-bottom: {{margin_mobile.bottom.value}}{{margin_mobile.bottom.type}};
+        --margin-mobile-left: {{#if margin_mobile.left.value '>' 0}}{{margin_mobile.left.value}}{{margin_mobile.left.type}}{{else}}auto{{/if}};
+    }
+    
+    .block-slider-{{_.id}} .block-slider-title {
+        color: {{title_color}};
+        background-color: {{title_background}};
+    }
+
+    .block-slider-{{_.id}} .block-slider-block:hover .block-slider-title {
+        color: {{title_color_hover}};
+        background-color: {{title_background_hover}};
+    }
+
+    {{#if show_overflow}}
+    .block-slider-{{_.id}} .splide__track {
+        overflow: visible;
+    }
+    {{/if}}
+
+    .block-slider-{{_.id}} {
+        padding: var(--padding-desktop-top) var(--padding-desktop-right) var(--padding-desktop-bottom) var(--padding-desktop-left);
+        margin: var(--margin-desktop-top) var(--margin-desktop-right) var(--margin-desktop-bottom) var(--margin-desktop-left);
+    }
+
+    @media (max-width: 800px) {
+        .block-slider-{{_.id}} {
+            padding: var(--padding-mobile-top) var(--padding-mobile-right) var(--padding-mobile-bottom) var(--padding-mobile-left);
+            margin: var(--margin-mobile-top) var(--margin-mobile-right) var(--margin-mobile-bottom) var(--margin-mobile-left);
+        }
+    }
+</style>
+
+<div class="block-slider block-slider-{{_.id}} container category-block-slider">
+    {{#or heading text}}
+        <div class="block-slider-heading">
+            {{#if heading}}
+                <h3>{{heading}}</h3>
+            {{/if}}
+            {{#if text}}
+                <p>{{text}}</p>
+            {{/if}}
+        </div>
+    {{/or}}
+
+    <div class="block-slider-slider" {{#if blocks.length '>' 1}}
+        data-slider='{
+            "type": "loop",
+            "arrows": false,
+            "pagination": false,
+            "perPage": {{slides_per_page_mobile}},
+            "perMove": 1,
+            "gap": "12px",
+            "mediaQuery": "min",
+            "breakpoints": {
+                "430": {
+                    "perPage": {{slides_per_page_mobile}},
+                    "gap": "16px"
+                },
+                "801": {
+                    "arrows": true,
+                    "perPage": {{slides_per_page_tablet}},
+                    "gap": "24px"
+                },
+                "1261": {
+                    "arrows": true,
+                    "perPage": {{slides_per_page_desktop}}
+                }
+            }
+        }'
+        {{/if}}>    
+
+        {{#each blocks}}
+            <div class="block-slider-block">
+                {{#each ../_.data.site.categoryTree}}
+                    {{#each children}}
+                        {{#if entityId '==' ../../categoryId }}
+                            <a href="{{path}}" class="category-block">
+                                {{#if ../../image.src}}
+                                    <img class="category-block-thumbnail" src="{{../../image.src}}" />
+                                {{else}}
+                                    <img class="category-block-thumbnail" src="{{image.url}}" />
+                                {{/if}}
+                                <h5 class="category-block-name">{{name}}</h5>
+                            </a>
+                        {{/if}}
+                        {{#each children}}
+                            {{#if entityId '==' ../../../categoryId }}
+                                <a href="{{path}}" class="category-block">
+                                    {{#if ../../../image.src}}
+                                        <img class="category-block-thumbnail" src="{{../../../image.src}}" />
+                                    {{else}}
+                                        <img class="category-block-thumbnail" src="{{image.url}}" />
+                                    {{/if}}
+                                    <h5 class="category-block-name">{{name}}</h5>
+                                </a>
+                            {{/if}}
+                        {{/each}}
+                    {{/each}}
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</div>

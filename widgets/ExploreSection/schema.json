@@ -1,0 +1,82 @@
+[
+    {
+        "type": "tab",
+        "label": "Settings",
+        "sections": [
+            {
+                "label": "Heading/Slider Settings",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "Heading",
+                        "id": "heading"
+                    },
+                    {
+                        "type": "select",
+                        "label": "Slider Type",
+                        "id": "styleType",
+                        "default": "explore",
+                        "typeMeta": {
+                          "selectOptions": [
+                            {
+                              "label": "Explore",
+                              "value": "explore"
+                            },
+                            {
+                              "label": "Style",
+                              "value": "style"
+                            },{
+                              "label": "All",
+                              "value": "all"
+                            }
+                          ]
+                        }
+                      },
+                    {
+                        "type": "text",
+                        "label": "Blocks per page (Tablet)",
+                        "id": "per_page_tablet",
+                        "default": "3"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Blocks per page (Mobile)",
+                        "id": "per_page_mobile",
+                        "default": "1"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Blocks per page (Desktop)",
+                        "id": "per_page_desktop",
+                        "default": "3"
+                      }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "array",
+        "label": "Blocks",
+        "id": "blocks",
+        "defaultCount": 1,
+        "entryLabel": "Block",
+        "schema": [
+            {
+                "type": "tab",
+                "label": "Block",
+                "sections": [
+                    {
+                        "settings": [
+                            {
+                                "type": "text",
+                                "label": "Category ID",
+                                "id": "categoryId",
+                                "default": "30"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

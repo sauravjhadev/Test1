@@ -1,0 +1,271 @@
+[
+    {
+      "type": "tab",
+      "label": "Settings",
+      "sections": [
+        {
+          "label": "Content",
+          "settings": [
+            {
+              "type": "input",
+              "label": "Heading",
+              "id": "heading"
+            },
+            {
+              "type": "input",
+              "label": "Description",
+              "id": "description"
+            },
+            {
+              "type":"boolean",
+              "label": "Flex Mode",
+              "id": "flex_mode",
+              "default": false
+            },
+            {
+              "type": "color",
+              "id": "background",
+              "label": "Background Colour",
+              "default": "#1D2023"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Colour",
+            "default": "#ffffff"
+        },
+            {
+              "type": "element",
+              "label": "Button First",
+              "id": "button1",
+              "typeMeta": {
+                "controls": {
+                  "visibility": {
+                    "default": "hide"
+                  },
+                  "advanced": {
+                    "settings": [
+                      {
+                        "type": "input",
+                        "id": "text",
+                        "label": "Button Text"
+                      },
+                      {
+                        "type": "input",
+                        "id": "url",
+                        "label": "Button URL"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "element",
+              "label": "Button Sec",
+              "id": "button2",
+              "typeMeta": {
+                "controls": {
+                  "visibility": {
+                    "default": "hide"
+                  },
+                  "advanced": {
+                    "settings": [
+                      {
+                        "type": "input",
+                        "id": "text",
+                        "label": "Button Text"
+                      },
+                      {
+                        "type": "input",
+                        "id": "url",
+                        "label": "Button URL"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+                "type": "boxModel",
+                "label": "Desktop Header Margin",
+                "id": "desktop_margin_header",
+                "default": {
+                    "top": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "right": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "bottom": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "left": {
+                        "value": "0",
+                        "type": "px"
+                      }
+                }
+            },
+            {
+                "type": "boxModel",
+                "label": "Mobile Header Margin",
+                "id": "mobile_margin_header",
+                "default": {
+                    "top": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "right": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "bottom": {
+                        "value": "0",
+                        "type": "px"
+                      },
+                      "left": {
+                        "value": "0",
+                        "type": "px"
+                      }
+                }
+            },{
+              "type": "boxModel",
+              "label": "Desktop benefits Margin",
+              "id": "desktop_margin_benefits",
+              "default": {
+                  "top": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "right": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "bottom": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "left": {
+                      "value": "0",
+                      "type": "px"
+                    }
+              }
+          },
+          {
+              "type": "boxModel",
+              "label": "Mobile benefits Margin",
+              "id": "mobile_margin_benefits",
+              "default": {
+                  "top": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "right": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "bottom": {
+                      "value": "0",
+                      "type": "px"
+                    },
+                    "left": {
+                      "value": "0",
+                      "type": "px"
+                    }
+              }
+          }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "array",
+      "label": "Benefits",
+      "id": "benefits",
+      "defaultCount": 1,
+      "entryLabel": "Benefit",
+      "schema": [
+        {
+          "type": "tab",
+          "label": "Benefit",
+          "sections": [
+            {
+              "settings": [
+                {
+                  "type": "input",
+                  "label": "Text",
+                  "id": "text"
+                },
+                {
+                  "type": "element",
+                  "label": "Icon",
+                  "id": "icon",
+                  "typeMeta": {
+                    "controls": {
+                      "visibility": {
+                        "default": "hide"
+                      },
+                      "advanced": {
+                        "settings": [
+                          {
+                            "type": "select",
+                            "label": "Icon Type",
+                            "id": "icon_type",
+                            "default": "svg",
+                            "typeMeta": {
+                              "selectOptions": [
+                                {
+                                  "label": "Image",
+                                  "value": "image"
+                                },
+                                {
+                                  "label": "SVG",
+                                  "value": "svg"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "imageManager",
+                            "label": "Image",
+                            "id": "icon_image",
+                            "default": {
+                              "src": "",
+                              "type": "IMAGE_MANAGER"
+                            },
+                            "conditional": {
+                              "key": "icon_type",
+                              "operator": "IN",
+                              "value": [
+                                "image"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "code",
+                            "label": "SVG",
+                            "id": "icon_svg",
+                            "conditional": {
+                              "key": "icon_type",
+                              "operator": "IN",
+                              "value": [
+                                "svg"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  

@@ -1,0 +1,86 @@
+[
+  {
+    "type": "tab",
+    "label": "Settings",
+    "sections": [
+      {
+        "label": "Content",
+        "settings": [
+          {
+            "type": "boxModel",
+            "label": "Desktop Margin",
+            "id": "desktop_margin",
+            "default": {
+                "top": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "right": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "bottom": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "left": {
+                    "value": "0",
+                    "type": "px"
+                  }
+            }
+        },
+        {
+            "type": "boxModel",
+            "label": "Mobile Margin",
+            "id": "mobile_margin",
+            "default": {
+                "top": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "right": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "bottom": {
+                    "value": "0",
+                    "type": "px"
+                  },
+                  "left": {
+                    "value": "0",
+                    "type": "px"
+                  }
+            }
+        }
+        ]
+    
+  }]},
+  {
+    "type": "array",
+    "label": "Text Slides",
+    "id": "influencers",
+    "defaultCount": 1,
+    "entryLabel": "Text label",
+    "schema": [
+      {
+        "type": "tab",
+        "label": "label",
+        "sections": [
+          {
+            "settings": [
+             
+               {
+                "type": "input",
+                "label": "Influencer name",
+                "id": "text_label",
+                "default":"Influencer"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }  
+
+]
+

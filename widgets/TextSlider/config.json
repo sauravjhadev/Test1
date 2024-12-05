@@ -1,0 +1,73 @@
+{
+  "title": "Influencer Picks",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a elit faucibus, vehicula urna sit amet, tincidunt orci.",
+  "per_page_mobile": "3.5",
+  "per_page_tablet": "4.5",
+  "per_page_desktop": "8",
+  "influencers": [
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    },
+    {
+      "img_link_url": "/",
+      "img_link_alt": "Influencer",
+      "influencer_img": {
+        "type": "IMAGE_MANAGER",
+        "src": "https://cdn11.bigcommerce.com/s-3k1bxwjbw6/images/stencil/original/image-manager/block-slider2.jpeg"
+      }
+    }
+  ]
+}

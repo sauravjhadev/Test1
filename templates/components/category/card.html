@@ -1,0 +1,26 @@
+<article
+    class="card"
+    data-cat="{{json this}}"
+>
+
+    <figure class="card-figure">
+
+        <a href="{{path}}"
+           class="card-figure__link"
+           data-event-type="product-click"
+        >
+            <div class="card-img">
+             <img src="{{image.url}}" alt="">
+            </div>
+        </a>
+    </figure>
+    <div class="card-body">
+     <h3 class="card-title">
+        <a 
+           href="{{path}}"
+        >
+            {{name}}
+        </a>
+    </h3>
+    </div>
+</article>

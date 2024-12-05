@@ -1,0 +1,124 @@
+<style>
+    .text_slider_{{_.id}}{
+        background:#d8ceceb0;
+    }
+    .text-slider_{{_.id}}{
+        margin-top: {{desktop_margin.top.value}}{{desktop_margin.top.type}};
+        margin-bottom: {{desktop_margin.bottom.value}}{{desktop_margin.bottom.type}};
+        width:70%;
+        margin:auto;
+    }
+    .text-slider_{{_.id}} p {
+        margin: 0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @media screen and (max-width: 800px) {
+        .text-slider_{{_.id}} {
+            margin-top: {{mobile_margin.top.value}}{{mobile_margin.top.type}};
+            margin-bottom: {{mobile_margin.bottom.value}}{{mobile_margin.bottom.type}};
+        }
+    }
+</style>
+
+<div class="text_slider_{{_.id}}">
+    
+
+    <div class="text-slider_{{_.id}}"  data-slider='{
+        "type": "slider",
+        "arrows": true,
+        "pagination": false,
+        "perPage": 1,
+        "perMove": 1,
+        "gap": "12px",
+        "mediaQuery": "min",
+        "breakpoints": {
+            "601": {
+                "perPage": 1,
+                "gap": "15px"
+            },
+            "1024": {
+                "perPage": 1,
+                "gap": "20px"
+            }
+        }
+    }'>
+        {{#each influencers}}
+            <div>
+                <p class="influencers-pick-img-name">{{text_label}}</p>
+            </div>
+        {{/each}}
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.0/dist/js/splide-extension-auto-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
+
+<script type="text/javascript">
+    window.onload = () => {
+        const sliders = document.querySelectorAll('[data-slider]');
+
+        sliders.forEach((slider) => {
+            // Function to initialize (or reinitialize) the slider
+            const initializeSlider = () => {
+
+                // Cleanup previous initialization if exists
+                if (slider.splide) {
+                    slider.splide.destroy();
+                    console.log('Previous instance destroyed.');
+                }
+
+                const options = JSON.parse(slider.dataset.slider || '{}'); // Parse options
+                const autoscroll = slider.hasAttribute('data-slider-autoscroll');
+                let extensions = {};
+
+                if (autoscroll) {
+                    extensions = { AutoScroll: Splide.Extensions.AutoScroll };
+                }
+
+                slider.classList.add('splide');
+                const trackEl = document.createElement('div');
+                trackEl.classList.add('splide__track');
+                const listEl = document.createElement('div');
+                listEl.classList.add('splide__list');
+
+                // Move children to Splide format
+                Array.from(slider.children).forEach((child) => {
+                    child.classList.add('splide__slide');
+                    listEl.appendChild(child);
+                });
+
+                trackEl.appendChild(listEl);
+                slider.innerHTML = ''; // Clear existing content
+                slider.appendChild(trackEl);
+
+                slider.splide = new Splide(slider, options).mount(extensions);
+                console.log('Slider initialized successfully.');
+            };
+
+            // Initial setup
+            initializeSlider();
+
+            // Observe changes for 'data-loaded' attribute
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-loaded') {
+                        const dataLoaded = mutation.target.getAttribute('data-loaded');
+                        if (dataLoaded === 'true') {
+                            console.log('Reinitializing slider due to data-loaded attribute.');
+                            initializeSlider();
+                        }
+                    }
+                });
+            });
+
+            observer.observe(slider, {
+                attributes: true,
+                subtree: false,
+            });
+        });
+    };
+</script>
