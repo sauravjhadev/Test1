@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone (3) (3)",
+  "name": "Cornerstone (3) (3) (1) (2)",
   "version": "6.15.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -471,7 +471,7 @@
         "hide_contact_us_page_heading": false,
         "homepage_new_products_count": 5,
         "homepage_featured_products_count": 4,
-        "homepage_top_products_count": 4,
+        "homepage_top_products_count": 7,
         "homepage_show_carousel": true,
         "homepage_show_carousel_arrows": true,
         "homepage_show_carousel_play_pause_button": true,

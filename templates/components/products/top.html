@@ -1,9 +1,32 @@
 <h2 class="page-heading">{{lang 'products.top' }}</h2>
 
-<ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="top_sellers" data-list-name="Most Popular Products">
+<section class="productCarousel popular-section" {{ columns }}" data-product-type="top_sellers" data-list-name="Most Popular Products" data-slick='{
+    "infinite": false,
+    
+    "mobileFirst": true,
+    "slidesToShow": 2,
+    "slidesToScroll": 2,
+    "slide": "[data-product-slide]",
+    "responsive": [
+        {
+            "breakpoint": 800,
+            "settings": {
+                "slidesToShow": 4,
+                "slidesToScroll": 1
+            }
+        },
+        {
+            "breakpoint": 550,
+            "settings": {
+                "slidesToShow": 2,
+                "slidesToScroll": 1
+            }
+        }
+    ]
+}'>
 {{#each products}}
-<li class="product">
+<div data-product-slide class="productCarousel-slide product">
     {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
-</li>
+</div>
 {{/each}}
-</ul>
+</section>
